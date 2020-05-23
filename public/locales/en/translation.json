@@ -1,0 +1,17 @@
+{
+    "profile": {
+        "fullName": "Full name",
+        "changePassword": "Change password",
+        "selectAppLanguage": "Select App language",
+        "logout": "Logout",
+        "logoutOnAllDevices": "Logout on all devices"
+    },
+    "likes": {
+        "recentLikes": "Recent likes"
+    },
+    "contact": {
+        "contactUs": "Countact us",
+        "help": "Let us know how we can help",
+        "buttonText": "Send"
+    }
+}
