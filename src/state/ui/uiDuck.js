@@ -12,7 +12,7 @@ export let defaultState = {
 export default (state = defaultState, action)=>{
     let newState = {...state};
     switch (action.type) {
-        case types.CHANGE_INFO:
+        case types.SHOW_DRAWER:
             newState.showDrawer = action.payload;
             return newState;
         default:

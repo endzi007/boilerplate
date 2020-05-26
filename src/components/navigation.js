@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
 import Drawer from '@material-ui/core/Drawer';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,7 +9,7 @@ import { creators as uiActions } from '../state/ui/uiDuck'
 
 const useStyles = makeStyles({
   root: {
-    position: "relative"
+    position: "relative",
   },
   fullList: {
     width: "250px",
@@ -22,8 +22,15 @@ const useStyles = makeStyles({
     width: "20px"
   },
   flexDiv: {
-    display: "flex"
-  }
+    position: "relative"
+  },
+  innerDiv: {
+    display: "flex",
+    flexDirection:"column",
+    alignItems: "center",
+    minWidth: "127px!important"
+  },
+  
 });
 
 export default function Navigation() {
@@ -42,15 +49,13 @@ export default function Navigation() {
   return (
     <div className={classes.flexDiv}>
         <Drawer className={classes.root} anchor="left" open={show} onClose={handleClose} >
-            <div className={classes.root}>
-            <Link href="#" onClick={handleClick.bind(this, "contact")}> Contact </Link>
-            <Link href="#" onClick={handleClick.bind(this, "profile")}> Profile </Link>
-            <Link href="#" onClick={handleClick.bind(this, "help")}> Help </Link>
-            </div>
+            <div className={classes.innerDiv}>
+                
+                <Button onClick={handleClick.bind(this, "contact")}> Contact </Button>
+                <Button onClick={handleClick.bind(this, "profile")}> Profile </Button>
+                <Button onClick={handleClick.bind(this, "help")}> Help </Button>
+                </div>
         </Drawer>
-        <div className={classes.arrow}>
-            enis
-        </div>
     </div>
   );
 }

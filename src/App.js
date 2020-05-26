@@ -13,14 +13,15 @@ import Contact from "./components/routes/contact";
 import Navigation from './components/navigation'
 import AppBar from './components/appBar'
 import BottomAppBar from './components/bottomAppBar'
+import ToggleDrawer from "./components/toggleDrawer";
 function App() {
-  const { t, i18n } = useTranslation();
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Router>
         <Navigation />
         <AppBar />
+        <ToggleDrawer />
           <Switch>
             <Route exact path = "/contact" component={Contact}/>
             <Route exact path = "/profile" component={Profile}/>
