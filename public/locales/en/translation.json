@@ -4,7 +4,8 @@
         "changePassword": "Change password",
         "selectAppLanguage": "Select App language",
         "logout": "Logout",
-        "logoutOnAllDevices": "Logout on all devices"
+        "logoutOnAllDevices": "Logout on all devices",
+        "profile": "Profile"
     },
     "likes": {
         "recentLikes": "Recent likes"
@@ -13,5 +14,9 @@
         "contactUs": "Countact us",
         "help": "Let us know how we can help",
         "buttonText": "Send"
+    },
+    "navigation":{
+        "profile": "Profile",
+        "help": "Help"
     }
 }

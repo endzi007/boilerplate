@@ -3,26 +3,30 @@ import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from "react-i18next";
 import { Typography } from "@material-ui/core";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core";
-
+import theme from './components/theme'
+import store from './state/store';
+import Profile from "./components/routes/profile";
+import Contact from "./components/routes/contact";
+import Navigation from './components/navigation'
+import AppBar from './components/appBar'
+import BottomAppBar from './components/bottomAppBar'
 function App() {
   const { t, i18n } = useTranslation();
-  const handleClick = (lang)=>{
-    console.log(lang);
-    i18n.changeLanguage(lang);
-  }
   return (
-    <ThemeProvider>
-      <Provider>
-      <div className="App">
-        <nav>
-          <button onClick = {()=>{handleClick("en")}}>English</button>
-          <button onClick = {()=>{handleClick("sr")}}>Serbian</button>
-        </nav>
-        <Typography variant="h3">{t('learn.1')}</Typography>
-          </div>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+        <Navigation />
+        <AppBar />
+          <Switch>
+            <Route exact path = "/contact" component={Contact}/>
+            <Route exact path = "/profile" component={Profile}/>
+          </Switch>
+        </Router>
+        <BottomAppBar />
       </Provider>
     </ThemeProvider>
   );

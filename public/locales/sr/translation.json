@@ -1,5 +1,22 @@
 {
-    "learn": {
-            "1": "Nauči React"
-        }
+    "profile": {
+        "fullName": "Ime i prezime",
+        "changePassword": "Promijeni šifru",
+        "selectAppLanguage": "Odaberi jezik",
+        "logout": "Izloguj se",
+        "logoutOnAllDevices": "Izloguj se sa svih uređaja",
+        "profile": "Profil"
+    },
+    "likes": {
+        "recentLikes": "Poslednji lajkovi"
+    },
+    "contact": {
+        "contactUs": "Kontaktirajte nas",
+        "help": "Kako vam možemo pomoći",
+        "buttonText": "Pošalji"
+    },
+    "navigation":{
+        "profile": "Profil",
+        "help": "Pomoć"
+    }
 }
