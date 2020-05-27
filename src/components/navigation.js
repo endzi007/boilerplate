@@ -6,6 +6,7 @@ import Drawer from '@material-ui/core/Drawer';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { creators as uiActions } from '../state/ui/uiDuck'
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles({
   root: {
@@ -42,6 +43,7 @@ export default function Navigation() {
     e.preventDefault()
     history.push(link)
   }
+  const { t, i18n } = useTranslation();
 
   const handleClose = ()=>{
     dispatch(uiActions.showDrawer(false))
@@ -51,9 +53,9 @@ export default function Navigation() {
         <Drawer className={classes.root} anchor="left" open={show} onClose={handleClose} >
             <div className={classes.innerDiv}>
                 
-                <Button onClick={handleClick.bind(this, "contact")}> Contact </Button>
-                <Button onClick={handleClick.bind(this, "profile")}> Profile </Button>
-                <Button onClick={handleClick.bind(this, "help")}> Help </Button>
+                <Button onClick={handleClick.bind(this, "contact")}> {t("navigation.contact")} </Button>
+                <Button onClick={handleClick.bind(this, "profile")}> {t("navigation.profile")} </Button>
+                <Button onClick={handleClick.bind(this, "help")}> {t("navigation.help")} </Button>
                 </div>
         </Drawer>
     </div>

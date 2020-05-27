@@ -5,7 +5,8 @@
         "selectAppLanguage": "Select App language",
         "logout": "Logout",
         "logoutOnAllDevices": "Logout on all devices",
-        "profile": "Profile"
+        "profile": "Profile",
+        "email": "Email"
     },
     "likes": {
         "recentLikes": "Recent likes"
@@ -17,6 +18,7 @@
     },
     "navigation":{
         "profile": "Profile",
-        "help": "Help"
+        "help": "Help",
+        "contact": "Contact"
     }
 }

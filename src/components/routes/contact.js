@@ -9,7 +9,7 @@ const styles = makeStyles(theme => ({
         alignItems: "center",
         justifyItems: "center",
         flexDirection: "column",
-        width: "100vw",
+        width: "100%",
         height: "calc(100vh - 69px - 69px)",
         justifyContent: "center",
         "& .MuiInput-root":{

@@ -5,7 +5,8 @@
         "selectAppLanguage": "Odaberi jezik",
         "logout": "Izloguj se",
         "logoutOnAllDevices": "Izloguj se sa svih uređaja",
-        "profile": "Profil"
+        "profile": "Profil",
+        "email": "Email"
     },
     "likes": {
         "recentLikes": "Poslednji lajkovi"
@@ -17,6 +18,7 @@
     },
     "navigation":{
         "profile": "Profil",
-        "help": "Pomoć"
+        "help": "Pomoć",
+        "contact": "Kontakt"
     }
 }
