@@ -6,7 +6,7 @@ const theme = createMuiTheme({
         primary: {
             main: "#fff"
         }
-    },
+    }
 })
 
 export default theme;

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import { Typography, Grid, Paper, Avatar, TextField, Select, MenuItem, makeStyles, FormControl, InputLabel, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -20,39 +21,45 @@ const styles = makeStyles(theme =>({
     button: {
         justifySelf: "flex-end",
         fontSize: "0.8em"
+    },
+    editDetails: {
+        color: "blue",
+        maxWidth: "150px",
+        alignSelf: "flex-end"
     }
 }))
 const Profile = ()=>{
     const { t, i18n } = useTranslation();
-    const lang = useSelector(state=>state.personalInfo.laguage);
-    const [ currentLang, setCurrentLang ] = useState(lang);
+    const [ details, setDetails ] = useState(useSelector(state=>state.personalInfo));
+    const [ editMode, setEditMode ] = useState(useSelector(state=>state.personalInfo.editMode))
+    const [ currentLang, setCurrentLang ] = useState(details.lang);
     const dispatch = useDispatch();
     const handleChange = (e) =>{
         e.preventDefault();
-        setCurrentLang(e.target.value);
+        changeLanguage(e.target.value);
     }
     useEffect(()=>{
-        dispatch(actions.changeLanguage(currentLang))
-        i18n.changeLanguage(currentLang);
-    }, [currentLang])
+        console.log("lang changed");
+        i18n.changeLanguage(details.language);
+    }, [details.language])
+
     const classes = styles();
 return <Grid container>
     <Grid item xs={12}><Typography variant="h3">{t("profile.profile")}</Typography></Grid>
     <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>
-                <Avatar className={classes.avatar} variant="Enis Jašarović" src={placeholder} />
-                <Button className={classes.button} color="primary">Edit details:</Button>
-                <TextField label={t("profile.fullName")}/>
-                <TextField label={t("profile.email")}/>
-                <TextField label={t("profile.changePassword")}/>
-                <FormControl>
+                <Avatar className={classes.avatar} variant="Enis Jašarović" src={details.profileImage} />
+                <Button className={classes.editDetails}>Edit details:</Button>
+                <TextField disabled={!editMode} label={t("profile.fullName")} defaultValue={details.fullName}/>
+                <TextField disabled={!editMode} label={t("profile.email")} defaultValue={details.email}/>
+                <TextField disabled={!editMode} type="password" label={t("profile.changePassword")} defaultValue={details.password}/>
+                <FormControl disabled={editMode}>
                     <InputLabel>{t("profile.selectAppLanguage")}</InputLabel>
                     <Select value={currentLang} defaultValue={currentLang} onChange={handleChange}>
-                        <MenuItem selected={lang==="en"} value="en">English</MenuItem>
-                        <MenuItem selected={lang==="sr"} value="sr">Serbian</MenuItem>
+                        <MenuItem selected={details.lang==="en"} value="en">English</MenuItem>
+                        <MenuItem selected={details.lang==="sr"} value="sr">Serbian</MenuItem>
                     </Select>
-
                 </FormControl>
             </Paper>
         </Grid> 
@@ -63,3 +70,15 @@ return <Grid container>
 }
 
 export default Profile;
+
+function changeLanguage(newLang){
+    const [ lang, setLang ] = useState("");
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        setLang(newLang)
+    }, [newLang])
+
+
+    return lang;
+}

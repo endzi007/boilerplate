@@ -17,7 +17,8 @@ const styles = makeStyles((theme)=>({
     },
     innerDiv: {
         height: "100px",
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.primary.contrastText,
+        color: theme.palette.primary.main,
         width: "100%",
         display: "flex",
         alignItems: "center",
@@ -36,7 +37,7 @@ export default ()=>{
     }
 
     const classes = styles();
-    return <div style={{ transform: show? "translateX(127px)": "translateX(0px)"}} className={classes.toggleDiv}>
+    return <div style={{ transform: show? "translateX(130px)": "translateX(0px)"}} className={classes.toggleDiv}>
         <div className={classes.innerDiv} onClick={()=>{ handleClick()}}>
             {show? <NavigateBefore/> :<NavigateNext />}
             
